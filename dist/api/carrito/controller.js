@@ -85,14 +85,14 @@ function getCartId(req, res, next) {
 }
 function postCart(req, res, next) {
     return __awaiter(this, void 0, void 0, function () {
-        var saveProduct, data, error_3;
+        var saveCart, data, error_3;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    saveProduct = req.body;
-                    console.log(saveProduct);
-                    return [4 /*yield*/, services_1["default"].postCart(saveProduct)];
+                    saveCart = req.body;
+                    console.log(saveCart);
+                    return [4 /*yield*/, services_1["default"].postCart(saveCart)];
                 case 1:
                     data = _a.sent();
                     res.status(200).send(data);
@@ -108,13 +108,13 @@ function postCart(req, res, next) {
 }
 function putCart(req, res, next) {
     return __awaiter(this, void 0, void 0, function () {
-        var saveProduct, data, error_4;
+        var saveCart, data, error_4;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    saveProduct = req.body;
-                    return [4 /*yield*/, services_1["default"].putCart(parseInt(req.params.id), saveProduct)];
+                    saveCart = req.body;
+                    return [4 /*yield*/, services_1["default"].putCart(parseInt(req.params.id), saveCart)];
                 case 1:
                     data = _a.sent();
                     res.status(200).send(data);
@@ -138,7 +138,6 @@ function deleteCart(req, res, next) {
                     return [4 /*yield*/, services_1["default"].deleteCart(parseInt(req.params.id))];
                 case 1:
                     data = _a.sent();
-                    //const data = await services.deleteProducts();
                     res.status(200).send(data);
                     return [3 /*break*/, 3];
                 case 2:
@@ -150,4 +149,68 @@ function deleteCart(req, res, next) {
         });
     });
 }
-exports["default"] = { getCart: getCart, deleteCart: deleteCart, postCart: postCart, putCart: putCart, getCartId: getCartId };
+function deleteProdCart(req, res, next) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data, error_6;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, services_1["default"].deleteProdCart(parseInt(req.params.idCart), parseInt(req.params.idProd))];
+                case 1:
+                    data = _a.sent();
+                    res.status(200).send(data);
+                    return [3 /*break*/, 3];
+                case 2:
+                    error_6 = _a.sent();
+                    next(new Error("Error intentando traer productos: " + error_6));
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
+}
+function addProdToCart(req, res, next) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data, error_7;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, services_1["default"].addProdToCart(parseInt(req.params.idCart), parseInt(req.params.idProd))];
+                case 1:
+                    data = _a.sent();
+                    res.status(200).send(data);
+                    return [3 /*break*/, 3];
+                case 2:
+                    error_7 = _a.sent();
+                    next(new Error("Error intentando traer productos: " + error_7));
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
+}
+function getProdsCartId(req, res, next) {
+    return __awaiter(this, void 0, void 0, function () {
+        var data, error_8;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    console.log(req.params.id);
+                    return [4 /*yield*/, services_1["default"].getCartId(parseInt(req.params.id))];
+                case 1:
+                    data = _a.sent();
+                    res.status(200).send(data);
+                    return [3 /*break*/, 3];
+                case 2:
+                    error_8 = _a.sent();
+                    next(new Error("Error intentando traer productos: " + error_8));
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
+}
+exports["default"] = { getCart: getCart, deleteCart: deleteCart, postCart: postCart, putCart: putCart, getCartId: getCartId, addProdToCart: addProdToCart, getProdsCartId: getProdsCartId, deleteProdCart: deleteProdCart };
