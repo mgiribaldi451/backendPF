@@ -9,7 +9,9 @@ import Productos from "interfaces/productos";
 //import IOServer, {Server} from 'socket.io'
 const app: Express = express();
 app.use(express.json());
-app.set('port', process.env.PORT || 8080);
+const port = normalizePort(process.env.PORT || '8080')
+//app.set('port', process.env.PORT || 8080);
+app.set('port',port)
 app.listen(8080);
 app.use("/api/", api);
 //const bp = require('body-parser')
@@ -33,4 +35,20 @@ server.setTimeout(0)
 
 
 server.on('error', error => console.log(`Error en servidor ${error}`))
+
+function normalizePort(val: string) {
+    const port: number = parseInt(val, 10)
+  
+    if (isNaN(port)) {
+      // named pipe
+      return val
+    }
+  
+    if (port >= 0) {
+      // port number
+      return port
+    }
+  
+    return false
+  }
 
