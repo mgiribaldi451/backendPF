@@ -188,10 +188,10 @@ Se indica el id el carrito del que queremos sacar el producto y el id y se elimi
 
 ## Deploy Heroku
 
-$ heroku login
-$ git add .
-$ git commit -am "make it better"
-$ git push heroku masterf
+<p> $ heroku login </p>
+<p>$ git add . </p>
+<p>$ git commit -am "make it better" </p>
+<p>$ git push heroku masterf </p>
 
 URL: https://coder-backend-pf.herokuapp.com/
 
