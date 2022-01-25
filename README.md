@@ -48,17 +48,17 @@ Una vez clonado se deben instalar las dependencias e iniciar el servidor.
 
 ### /productos
 
-`GET: /productos`
+`GET: /api/productos`
 
-- Get: localhost:8080/productos
+- Get: localhost:8080/api/productos
 
-`GET: /productos/:id`
+`GET: /api/productos/:id`
 
 - Get: localhost:8080/productos/id
 
 Devuelve solo el producto en caso de que exista
 
-`POST: /productos`
+`POST: /api/productos`
 
 - Post: localhost:8080/productos
 
@@ -77,16 +77,16 @@ formato body postman:
 
     El campo id dejarlo en 0 al guardar un nuevo producto calculara el id.
 
-`DELETE: /productos/:id`
+`DELETE: /api/productos/:id`
 
-- Delete: localhost:8080/productos/:id
+- Delete: localhost:8080/api/productos/:id
 
 Elimina el producto que se pasa en el id
 
 
-`PUT: /productos/:id`
+`PUT: /api/productos/:id`
 
-- Put: localhost:8080/productos/:id
+- Put: localhost:8080/api/productos/:id
 
 formato body postman:
 
@@ -106,21 +106,21 @@ formato body postman:
 
 ### /carrito
 
-`GET: /carrito`
+`GET: /api/carrito`
 
-- Get: localhost:8080/carrito
+- Get: localhost:8080/api/carrito
 
 retornara todos los carritos creados
 
-`GET: /carrito/:id`
+`GET: /api/carrito/:id`
 
-- Get: localhost:8080/carrito/:id
+- Get: localhost:8080/api/carrito/:id
 
 Devuelve el carrito solicitado por ID
 
-`POST: /carrito/:id`
+`POST: /api/carrito/:id`
 
-- Post: localhost:8080/carrito
+- Post: localhost:8080/api/carrito
 
 Formato Carrito:
 {
@@ -164,23 +164,36 @@ el campo productos puede iniciarse en un Array vacio y despues solo pueden inser
 El ID de cada carrito se ira generando a medida que se vayan creando
 
 
-`POST: /carrito/:idCart/productos/:idProd`
+`POST: /api/carrito/:idCart/productos/:idProd`
 
-- Post: localhost:8080/carrito/:idCart/productos/:idProd
+- Post: localhost:8080/api/carrito/:idCart/productos/:idProd
 
 Se le indica el id del carrito al que agregaremos el producto y el id del producto que se quiere agregar
 solicita el producto mediante una request con axios y la guarda en el carrito.
 
-`DELETE: /carrito/:id`
+`DELETE: /api/carrito/:id`
 
 - Delete: localhost:8080/carrito/:id
 
 Elimina el carrito que se indico por id
 
 
-`DELETE: /carrito/:idCart/productos/:idProd`
+`DELETE: /api/carrito/:idCart/productos/:idProd`
 
-- Delete: localhost:8080/carrito/:idCart/productos/:idProd
+- Delete: localhost:8080/api/carrito/:idCart/productos/:idProd
 
 Se indica el id el carrito del que queremos sacar el producto y el id y se elimina el producto del carrito
 
+
+
+## Deploy Heroku
+
+$ heroku login
+$ git add .
+$ git commit -am "make it better"
+$ git push heroku masterf
+
+URL: https://coder-backend-pf.herokuapp.com/
+
+Postman: https://coder-backend-pf.herokuapp.com/api/productos
+        https://coder-backend-pf.herokuapp.com/api/carritos
