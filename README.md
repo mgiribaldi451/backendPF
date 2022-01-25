@@ -54,13 +54,13 @@ Una vez clonado se deben instalar las dependencias e iniciar el servidor.
 
 `GET: /api/productos/:id`
 
-- Get: localhost:8080/productos/id
+- Get: localhost:8080/api/productos/id
 
 Devuelve solo el producto en caso de que exista
 
 `POST: /api/productos`
 
-- Post: localhost:8080/productos
+- Post: localhost:8080/api/productos
 
 formato body postman:
 
