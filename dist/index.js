@@ -10,7 +10,9 @@ var http_1 = __importDefault(require("http"));
 //import IOServer, {Server} from 'socket.io'
 var app = (0, express_1["default"])();
 app.use(express_1["default"].json());
-app.set('port', process.env.PORT || 8080);
+var port = normalizePort(process.env.PORT || '8080');
+//app.set('port', process.env.PORT || 8080);
+app.set('port', port);
 app.listen(8080);
 app.use("/api/", api_1["default"]);
 //const bp = require('body-parser')
@@ -28,3 +30,15 @@ app.get('/', function (req, res) {
 server.listen(3001);
 server.setTimeout(0);
 server.on('error', function (error) { return console.log("Error en servidor ".concat(error)); });
+function normalizePort(val) {
+    var port = parseInt(val, 10);
+    if (isNaN(port)) {
+        // named pipe
+        return val;
+    }
+    if (port >= 0) {
+        // port number
+        return port;
+    }
+    return false;
+}
