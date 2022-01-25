@@ -11,7 +11,7 @@ app.use(express.json());
 const port = normalizePort(process.env.PORT || '8080')
 //app.set('port', process.env.PORT || 8080);
 app.set('port',port)
-app.listen(8080);
+app.listen(process.env.PORT || 8080);
 app.use("/api/", api);
 
 app.use(express.static('public'));
