@@ -113,7 +113,7 @@ async function deleteProdCart(idCart:number , idProd:number) {
 
 async function addProdToCart(idCart:number, idProducto:number) {
     
-  let res= await axios.get(`http://localhost:8080/api/productos/${idProducto}`)
+  let res= await axios.get(`https://coder-backend-pf.herokuapp.com/api/productos/${idProducto}`)
   let data = res.data
   console.log(data);
   let index=carros.findIndex(a=> a.id ===idCart)
